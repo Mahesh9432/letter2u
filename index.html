@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>A Small Question — Proposal</title>
+<style>
+  :root{
+    --bg1:#0b0712;
+    --bg2:#2b0236;
+    --accent:#ff7ab6;
+    --accent-soft: rgba(255,122,182,0.12);
+    --glass: rgba(255,255,255,0.04);
+    --card-radius:18px;
+    --maxw:960px;
+    color-scheme: dark;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  }
+  html,body{height:100%;margin:0}
+  body{
+    background: radial-gradient(800px 400px at 10% 20%, rgba(255,122,182,0.08), transparent), linear-gradient(180deg,var(--bg1),var(--bg2));
+    display:flex;align-items:center;justify-content:center;padding:28px;color:#fff;overflow:hidden;
+  }
+  .sky{position:fixed;inset:0;pointer-events:none}
+  .stars, .glow{position:absolute;inset:0}
+  .stars:after{content:"";position:absolute;inset:0;background-image:radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.9), transparent), radial-gradient(1.2px 1.2px at 70% 60%, rgba(255,255,255,0.85), transparent), radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.7), transparent);opacity:0.08;filter:blur(0.4px)}
+  .glow:after{content:"";position:absolute;inset:-20%;background:radial-gradient(400px 120px at 80% 10%, rgba(255,122,182,0.06), transparent), radial-gradient(300px 100px at 10% 90%, rgba(96,165,250,0.03), transparent)}
+  .wrap{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:1fr;gap:22px;align-items:center;z-index:2}
+  .card{border-radius:var(--card-radius);padding:30px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 40px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);position:relative;overflow:hidden}
+  .left-deco{position:absolute;left:-80px;top:20%;width:260px;height:260px;transform:rotate(-20deg);opacity:0.12;mix-blend-mode:screen}
+  h1{font-size:36px;margin:0 0 8px 0;letter-spacing:0.2px}
+  h2{font-size:18px;margin:0;color:rgba(255,255,255,0.85);font-weight:500}
+  p.lead{margin:12px 0 0;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6}
+  .shayari{margin-top:16px;font-size:18px;line-height:1.5;color:rgba(255,240,250,0.95)}
+  .shayari .line{display:block;opacity:0;transform:translateY(8px);}
+  .card-lower{margin-top:20px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+  .small{font-size:13px;color:rgba(255,255,255,0.7)}
+  .hearts{position:absolute;inset:0;pointer-events:none}
+  .heart{position:absolute;width:28px;height:28px;transform:translate(-50%,-50%) scale(0);opacity:0.95;will-change:transform,opacity;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.4));}
+  .heart svg{width:100%;height:100%}
+  .center-reveal{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px}
+  .question{font-size:46px;font-weight:700;background:linear-gradient(90deg,#fff,#ffd1ea);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+  .question.small{font-size:22px;margin-top:6px}
+  .pulse{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:420px;height:420px;border-radius:999px;background:radial-gradient(circle at center, rgba(255,122,182,0.06), transparent 35%);filter:blur(10px);opacity:0.9;pointer-events:none}
+  .sign{margin-top:18px;font-size:15px;color:rgba(255,255,255,0.9)}
+  .hint{position:fixed;right:18px;bottom:18px;font-size:13px;color:rgba(255,255,255,0.7);opacity:0.9;z-index:3}
+  @keyframes floatUp{0%{transform:translate(-50%,-20%) scale(0.9);opacity:1}100%{transform:translate(-50%,-140%) scale(1.05);opacity:0}}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+  @media (max-width:620px){h1{font-size:28px}.question{font-size:34px}.pulse{width:320px;height:320px}}
+</style>
+</head>
+<body>
+  <div class="sky"><div class="stars"></div><div class="glow"></div></div>
+  <div class="wrap">
+    <div class="card" role="main" aria-label="Love proposal">
+      <svg class="left-deco" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#ff8ac2"/><stop offset="1" stop-color="#a18cff"/></linearGradient></defs>
+        <g fill="url(#g1)"><path d="M50 30c-18 0-32 14-32 32 0 18 32 44 68 76 36-32 68-58 68-76 0-18-14-32-32-32-10 0-18 6-24 12-6-6-14-12-24-12z"/></g>
+      </svg>
+      <div class="center-reveal" id="center">
+        <div class="pulse" aria-hidden></div>
+        <div style="z-index:2">
+          <h1 id="titleText">For the one who makes my world brighter</h1>
+          <h2 id="subText">A small truth wrapped in a question...</h2>
+        </div>
+        <div style="margin-top:18px;z-index:2">
+          <div class="question" id="bigQ">Will you be mine?</div>
+          <div class="question small" id="bigQsub">(I want to share every sunrise with you)</div>
+        </div>
+        <div class="shayari" id="shayari" aria-live="polite">
+          <span class="line">तेरी मुस्कान से सुबह बन जाती है,</span>
+          <span class="line">तेरे ख्यालों से हर रात महक जाती है।</span>
+          <span class="line">मैं हर पल में तुझको ढूँढता हूँ,</span>
+          <span class="line">क्या मैं तेरे ज़िंदगी का हिस्सा बन सकता हूँ?</span>
+        </div>
+        <div class="sign" id="sign">— Mahesh</div>
+      </div>
+      <div class="card-lower" style="z-index:2">
+        <div class="small">This page is made with love. Click or tap anywhere to begin — just a moment.</div>
+      </div>
+      <div class="hearts" id="hearts"></div>
+    </div>
+  </div>
+  <div class="hint"> ✨</div>
+  <audio id="music" loop preload="auto">
+    <source src="https://cdn.jsdelivr.net/gh/anars/blank-audio@master/1-second-of-silence.mp3" type="audio/mpeg">
+  </audio>
+<script>
+  let started = false;
+  const audio = document.getElementById('music');
+  const heartsContainer = document.getElementById('hearts');
+  const shLines = Array.from(document.querySelectorAll('.shayari .line'));
+  function startExperience(){
+    if(started) return; started = true;
+    // Replace audio with YouTube video audio
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/lHm2s--kSRc?autoplay=1&loop=1&playlist=lHm2s--kSRc';
+    iframe.allow = 'autoplay';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    shLines.forEach((el,idx)=>{setTimeout(()=>{el.style.transition='all 700ms cubic-bezier(.2,.9,.2,1)';el.style.opacity='1';el.style.transform='translateY(0px)';},700+idx*900);});
+    spawnHearts();
+    const bigQ=document.getElementById('bigQ');
+    bigQ.animate([{transform:'scale(1)'},{transform:'scale(1.04)'},{transform:'scale(1)'}],{duration:2200,iterations:Infinity,easing:'ease-in-out'});
+    const hint=document.querySelector('.hint');hint.style.transition='opacity 900ms';hint.style.opacity='0.12';
+  }
+  function spawnHearts(){
+    let count=0;const colors=['#ff6fa3','#ffc0dd','#ffd1a9','#ff9bd6','#e8b3ff'];
+    const spawn=()=>{const h=document.createElement('div');h.className='heart';const size=18+Math.random()*34;h.style.width=size+'px';h.style.height=size+'px';const left=Math.random()*100+'%';h.style.left=left;h.style.bottom='-20px';h.style.opacity=0.95-Math.random()*0.25;const color=colors[Math.floor(Math.random()*colors.length)];h.innerHTML=`<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="${color}" d="M12 21s-7.2-4.35-9.3-6.45C-0.2 11.6 1 6 5 5c2-0.6 3.9 0.5 4.9 1.9C11.1 5.5 12.9 4.4 15 5c4 1 5.2 6.6 2.3 9.55C19.2 16.65 12 21 12 21z"/></svg>`;heartsContainer.appendChild(h);const duration=4500+Math.random()*4500;const translateX=(Math.random()*80-40);h.animate([{transform:`translate(-50%,0) scale(${0.9+Math.random()*0.2})`,opacity:h.style.opacity},{transform:`translate(calc(-50% + ${translateX}px), -420px) scale(1.05)`,opacity:0}],{duration:duration,easing:'cubic-bezier(.2,.9,.2,1)'});setTimeout(()=>{h.remove();},duration+60);count++;if(count<35)setTimeout(spawn,250+Math.random()*500);};for(let i=0;i<8;i++){setTimeout(spawn,i*120);}}
+  ['click','touchstart','keydown'].forEach(evt=>{window.addEventListener(evt,function starter(){startExperience();window.removeEventListener(evt,starter);},{passive:true});});
+</script>
+</body>
+</html>
